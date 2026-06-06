@@ -1,12 +1,12 @@
 # OV5640 定时拍照上传
 
-基于 ESP32-S3 + OV5640 的定时拍照并通过 HTTP 上传至本地服务器的项目。
+基于 ESP32-S3 + OV5640 的定时拍照并通过 HTTP 上传至本地服务器的小项目，主要是淘宝店家没给我OV5640相关配置文件，苦苦弄了一个晚上，现在写出来。  
 
 ## 硬件
 
 - **MCU**: ESP32-S3（8MB PSRAM, 16MB Flash）
-- **摄像头**: OV5640（500 万像素）
-- **引脚映射**（ESP32-S3-EYE 标准）：
+- **摄像头**: OV5640
+- **引脚映射**：
 
 | GPIO | 信号 | GPIO | 信号 |
 |------|------|------|------|
@@ -36,15 +36,6 @@ main/
 └── CMakeLists.txt
 components/
 └── BSP/camera/     # OV5640 驱动封装
-```
-
-## 构建
-
-依赖 ESP-IDF v5.5.3：
-
-```bash
-idf.py build
-idf.py -p /dev/ttyACM0 flash monitor
 ```
 
 ## 配置
