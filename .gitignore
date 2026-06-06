@@ -1,0 +1,12 @@
+build/
+sdkconfig
+sdkconfig.old
+*.pyc
+__pycache__/
+.vscode/
+.clangd
+dependencies.lock
+managed_components/
+photos/
+CameraWebServer/
+getting_started/
