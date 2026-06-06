@@ -62,8 +62,6 @@ cp main/secrets_example.h main/secrets.h
 #define UPLOAD_URL    "http://你的IP:8888/upload"
 ```
 
-`secrets.h` 已加入 `.gitignore`，不会被提交。
-
 ## 照片接收
 
 运行 Flask 接收服务：
