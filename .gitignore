@@ -10,3 +10,4 @@ managed_components/
 photos/
 CameraWebServer/
 getting_started/
+.devcontainer/
