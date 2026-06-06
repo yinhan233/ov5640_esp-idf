@@ -49,10 +49,20 @@ idf.py -p /dev/ttyACM0 flash monitor
 
 ## 配置
 
-需修改以下文件中的 WiFi 和服务器地址：
+复制 `main/secrets_example.h` 为 `main/secrets.h` 并填入实际值：
 
-- `main/wifi_mgr.c`: `SSID` / `PASSWORD`
-- `main/upload.c`: `SERVER_URL`
+```bash
+cp main/secrets_example.h main/secrets.h
+```
+
+编辑 `main/secrets.h`：
+```c
+#define WIFI_SSID     "你的WiFi名"
+#define WIFI_PASSWORD "你的WiFi密码"
+#define UPLOAD_URL    "http://你的IP:8888/upload"
+```
+
+`secrets.h` 已加入 `.gitignore`，不会被提交。
 
 ## 照片接收
 
@@ -63,12 +73,3 @@ python3 save_images.py
 ```
 
 浏览器访问 `http://<IP>:8888` 查看照片。
-
-## 已知改动
-
-- `managed_components/` 下的 `ov5640_settings.h` 增加了 `{0x3000, 0x00}` 清除 SOFTWARE_PWDN
-- `managed_components/` 下的 `camera_ov5640.h` 中 `ENABLE_CAMERA` 改为 `1`
-
-## License
-
-MIT

@@ -4,13 +4,11 @@
 #include "nvs_flash.h"
 #include "freertos/event_groups.h"
 #include "wifi_mgr.h"
+#include "secrets.h"
 
 static const char *TAG = "WIFI";
 static EventGroupHandle_t s_event_group;
 static const int WIFI_CONNECTED = BIT0;
-
-#define SSID     "HZAUAIoTLab"
-#define PASSWORD "hzauaiotlab"
 
 static void event_handler(void *arg, esp_event_base_t base, int32_t id, void *data)
 {
@@ -47,7 +45,7 @@ esp_err_t wifi_mgr_init(void)
     ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, &inst));
     ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, &inst));
 
-    wifi_config_t wc = { .sta = { .ssid = SSID, .password = PASSWORD } };
+    wifi_config_t wc = { .sta = { .ssid = WIFI_SSID, .password = WIFI_PASSWORD } };
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wc));
     ESP_ERROR_CHECK(esp_wifi_start());
